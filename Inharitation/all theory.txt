@@ -1,0 +1,358 @@
+
+✅ INHERITANCE (OOP in Python)[Pro_3.Py to ]
+✅ What is Inheritance?
+Inheritance means a child class takes properties and methods from a parent class.
+
+Why we use inheritance?
+✅ Code reuse
+✅ Easy maintenance
+✅ Real-world relationship (Parent → Child)
+✅ Supports polymorphism (overriding)
+
+Syntax
+class Parent:
+    pass
+
+class Child(Parent):
+    pass
+1️⃣ Single Inheritance
+✅ Meaning
+One child class inherits from one parent class
+
+Example
+class Father:
+    def skills(self):
+        print("Father: Driving, Business")
+
+class Son(Father):
+    def own_skills(self):
+        print("Son: Coding")
+
+s = Son()
+s.skills()
+s.own_skills()
+
+Output
+Father: Driving, Business
+Son: Coding
+
+🧠 Questions (Single Inheritance)
+⭐ Intermediate
+Create class Animal with method eat().
+Create class Dog(Animal) with method bark(). Call both methods.(pro_3)
+
+Create class Employee with name, salary.
+Create class Developer(Employee) with language. Print all details.(pro_4)
+
+🔥 Hard
+Create class Account with balance and method deposit() and withdraw().
+Create class SavingsAccount(Account) that adds interest_rate and method add_interest().(pro_5.py)
+
+Create class Vehicle with start() and stop().
+Create class Car(Vehicle) and override start() to print "Car starts with key".(pro_6.py)
+
+2️⃣ Multilevel Inheritance
+✅ Meaning
+Inheritance chain like:
+Grandparent → Parent → Child
+
+Example
+class GrandFather:
+    def land(self):
+        print("Grandfather: Land")
+
+class Father(GrandFather):
+    def house(self):
+        print("Father: House")
+
+class Son(Father):
+    def bike(self):
+        print("Son: Bike")
+
+s = Son()
+s.land()
+s.house()
+s.bike()
+🧠 Questions (Multilevel Inheritance)
+⭐ Intermediate
+Create Person -> Student -> CollegeStudent
+Add one method in each class and call all from CollegeStudent.(pro_7.py)
+
+Create Company -> Manager -> TeamLead
+Add attributes in each and print all.(pro_8.py)
+
+🔥 Hard
+Create Device -> Mobile -> Smartphone
+
+Device has power_on()
+
+Mobile has call()
+
+Smartphone has internet()
+Also override power_on() in Smartphone.(pro_9.py)
+
+Create A -> B -> C
+Each class has constructor printing its class name.
+Use super() to call constructors properly.(pro_10.py)
+
+3️⃣ Multiple Inheritance
+✅ Meaning
+One child class inherits from multiple parent classes
+
+Example
+class Father:
+    def father_quality(self):
+        print("Father: Discipline")
+
+class Mother:
+    def mother_quality(self):
+        print("Mother: Caring")
+
+class Child(Father, Mother):
+    def child_quality(self):
+        print("Child: Smart")
+
+c = Child()
+c.father_quality()
+c.mother_quality()
+c.child_quality()
+✅ Python supports multiple inheritance.
+
+⚠️ Important: MRO (Method Resolution Order)
+If both parents have same method name, Python follows MRO.
+
+class A:
+    def show(self):
+        print("A")
+
+class B:
+    def show(self):
+        print("B")
+
+class C(A, B):
+    pass
+
+obj = C()
+obj.show()
+print(C.mro())
+It will call A first because A is first in (A, B).
+
+🧠 Questions (Multiple Inheritance)
+⭐ Intermediate
+Create class Camera with method take_photo()
+Create class Phone with method call()
+Create class SmartPhone(Camera, Phone) and call both.
+
+Create Teacher and Singer classes.
+Child class Person(Teacher, Singer) should use both methods.
+
+🔥 Hard
+Create class A and B both have method display().
+Child class C(A, B) calls display() and print MRO.
+Then change order C(B, A) and check output difference.
+
+Create LoginSystem and PaymentSystem both have start() method.
+Create EcommerceApp(LoginSystem, PaymentSystem)
+Solve method conflict using:
+
+super()
+
+Explicit class calling (LoginSystem.start(self))
+
+4️⃣ Hierarchical Inheritance
+✅ Meaning
+One parent class, many child classes
+
+Like:
+Parent → Child1
+Parent → Child2
+Parent → Child3
+
+Example
+class Animal:
+    def sound(self):
+        print("Animals make sound")
+
+class Dog(Animal):
+    def sound(self):
+        print("Dog barks")
+
+class Cat(Animal):
+    def sound(self):
+        print("Cat meows")
+
+d = Dog()
+c = Cat()
+
+d.sound()
+c.sound()
+🧠 Questions (Hierarchical Inheritance)
+⭐ Intermediate
+Create Shape class with method area()
+Create Circle(Shape) and Rectangle(Shape) with their own area formulas.
+
+Create BankAccount class
+Create SavingsAccount and CurrentAccount as child classes.
+
+🔥 Hard
+Create parent class Notification with method send()
+Create child classes:
+
+EmailNotification
+
+SMSNotification
+
+WhatsAppNotification
+Override send() in each.
+
+Create parent Employee and child classes Developer, Designer, Tester
+Each should override method work().
+
+5️⃣ Hybrid Inheritance
+✅ Meaning
+Hybrid inheritance = mix of two or more inheritance types
+Example: combination of multiple + multilevel etc.
+
+⚠️ Python supports hybrid inheritance.
+
+Example (Hybrid: Multiple + Multilevel)
+class A:
+    def showA(self):
+        print("A")
+
+class B(A):
+    def showB(self):
+        print("B")
+
+class C(A):
+    def showC(self):
+        print("C")
+
+class D(B, C):
+    def showD(self):
+        print("D")
+
+obj = D()
+obj.showA()
+obj.showB()
+obj.showC()
+obj.showD()
+🧠 Questions (Hybrid Inheritance)
+⭐ Intermediate
+Create Person class
+Create Student(Person) and Employee(Person)
+Create WorkingStudent(Student, Employee)
+Print all details.
+
+Create Machine → Vehicle(Machine)
+Create Car(Vehicle) and Electric(Car, Machine) hybrid.
+
+🔥 Hard
+Create a hybrid system and print MRO.
+Example classes: A, B(A), C(A), D(B, C)
+Now add method with same name in B and C and observe output.
+
+Make constructors in all classes and ensure all constructors run properly using super().
+
+6️⃣ Method Overriding
+✅ Meaning
+When child class changes parent method implementation (same name, same parameters).
+
+Example
+class Parent:
+    def show(self):
+        print("Parent method")
+
+class Child(Parent):
+    def show(self):
+        print("Child method")
+
+c = Child()
+c.show()
+Output
+Child method
+✅ Child method overrides parent method.
+
+🧠 Questions (Overriding)
+⭐ Intermediate
+Create Vehicle class with start()
+Create Bike(Vehicle) override start().
+
+Create Teacher class with method teach()
+Create MathTeacher(Teacher) override teach().
+
+🔥 Hard
+Create class Employee with method calculate_salary()
+Create child Intern(Employee) where salary is fixed low
+Create child Manager(Employee) where salary includes bonus
+Override method in both.
+
+Create parent method display_info()
+Child should call parent version also using super() and then add extra info.
+
+7️⃣ super() Function
+✅ Meaning
+super() is used to call parent class methods or constructors inside child class.
+
+Why super() is useful?
+✅ Avoid writing parent class name directly
+✅ Helps in multiple inheritance (MRO)
+✅ Calls parent constructor properly
+
+✅ super() with method
+class Parent:
+    def show(self):
+        print("Parent show")
+
+class Child(Parent):
+    def show(self):
+        super().show()
+        print("Child show")
+
+c = Child()
+c.show()
+Output
+Parent show
+Child show
+✅ super() with constructor
+class Parent:
+    def __init__(self, name):
+        self.name = name
+
+class Child(Parent):
+    def __init__(self, name, age):
+        super().__init__(name)
+        self.age = age
+
+c = Child("Rajan", 19)
+print(c.name, c.age)
+🧠 Questions (super)
+⭐ Intermediate
+Create class A with method hello()
+Create class B(A) override hello and use super().
+
+Create Person(name) and Student(name, roll)
+Use super() to set name.
+
+🔥 Hard
+Create multiple inheritance classes and use super() properly:
+
+A -> B(A)
+
+A -> C(A)
+
+D(B, C)
+Make constructors in all and call all using super().
+
+Create class Shape with area()
+Child class Rectangle calls parent area using super then modifies output.
+
+✅ Quick Summary Table (Very Important)
+Type	Meaning
+Single	1 parent → 1 child
+Multilevel	Grandparent → Parent → Child
+Multiple	Multiple parents → 1 child
+Hierarchical	1 parent → many children
+Hybrid	Combination of inheritance types
+Overriding	Child changes parent method
+super()	Calls parent methods/constructor

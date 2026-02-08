@@ -1,0 +1,137 @@
+✅ 1) Instance Variables vs Class Variables
+✅ Instance Variable
+
+📌 Belongs to an object (instance)
+Each object has its own copy.
+
+Example:
+class Student:
+    def __init__(self, name):
+        self.name = name   # instance variable
+
+s1 = Student("Rajan")
+s2 = Student("Amit")
+
+print(s1.name)   # Rajan
+print(s2.name)   # Amit
+
+
+✔️ Here name is different for each object.
+
+✅ Class Variable
+
+📌 Belongs to the class
+All objects share the same variable.
+
+Example:
+class Student:
+    college = "ABC College"   # class variable
+
+    def __init__(self, name):
+        self.name = name      # instance variable
+
+s1 = Student("Rajan")
+s2 = Student("Amit")
+
+print(s1.college)  # ABC College
+print(s2.college)  # ABC College
+
+
+✔️ college is same for all objects.
+
+🔥 Changing Class Variable
+Student.college = "XYZ College"
+
+print(s1.college)  # XYZ College
+print(s2.college)  # XYZ College
+
+⚠️ Important Confusion
+
+If you do:
+
+s1.college = "New College"
+
+
+Then college becomes instance variable only for s1, not for all.
+
+✅ Summary Table (Instance vs Class)
+Feature	Instance Variable	Class Variable
+Belongs to	Object	Class
+Separate copy?	Yes (each object)	No (shared)
+Created using	self.var	ClassName.var
+Access	obj.var	ClassName.var or obj.var
+✅ 2) @classmethod vs @staticmethod
+✅ @classmethod
+
+📌 Works with class
+It takes cls as first parameter
+Used to access/modify class variables
+
+Example:
+class Student:
+    college = "ABC College"
+
+    @classmethod
+    def change_college(cls, new_college):
+        cls.college = new_college
+
+print(Student.college)  # ABC College
+
+Student.change_college("XYZ College")
+print(Student.college)  # XYZ College
+
+
+✔️ cls means the class itself.
+
+✅ @staticmethod
+
+📌 Does not use self or cls
+Just a normal function inside class
+Used when function is related to class but does not need object/class data
+
+Example:
+class Math:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(Math.add(10, 20))  # 30
+
+
+✔️ No self, no cls
+
+✅ Summary Table (@classmethod vs @staticmethod)
+Feature	@classmethod	@staticmethod
+First parameter	cls	none
+Can access class variables?	✅ Yes	❌ No
+Can modify class variables?	✅ Yes	❌ No
+Works like	Class-level method	Normal function inside class
+⭐ Combined Example (All Together)
+class Employee:
+    company = "Google"   # class variable
+
+    def __init__(self, name, salary):
+        self.name = name      # instance variable
+        self.salary = salary  # instance variable
+
+    @classmethod
+    def change_company(cls, new_company):
+        cls.company = new_company
+
+    @staticmethod
+    def is_high_salary(salary):
+        return salary > 50000
+
+e1 = Employee("Rajan", 60000)
+e2 = Employee("Amit", 30000)
+
+print(e1.name, e1.company)  # Rajan Google
+print(e2.name, e2.company)  # Amit Google
+
+Employee.change_company("Microsoft")
+
+print(e1.company)  # Microsoft
+print(e2.company)  # Microsoft
+
+print(Employee.is_high_salary(e1.salary))  # True
+print(Employee.is_high_salary(e2.salary))  # False

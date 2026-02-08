@@ -1,0 +1,235 @@
+✅ 1) What is Inheritance?
+Inheritance = Getting properties from Parent class
+
+Inheritance means:
+
+👉 A child class can use the variables + methods of a parent class.
+
+Real-life example:
+
+Parent = Father
+
+Child = Son
+Son can get father’s:
+✅ money, house, habits (properties)
+
+✅ Why Inheritance is useful?
+
+✅ Code Reuse (no repeated code)
+✅ Faster development
+✅ Easy maintenance
+✅ Supports Polymorphism (method overriding)
+
+✅ Basic Syntax
+class Parent:
+    def show(self):
+        print("I am Parent")
+
+class Child(Parent):
+    pass
+
+c = Child()
+c.show()
+
+✅ 2) Types of Inheritance in Python
+✅ (A) Single Inheritance
+One parent → one child
+class Animal:
+    def sound(self):
+        print("Animal makes sound")
+
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+d = Dog()
+d.sound()
+d.bark()
+
+✅ (B) Multilevel Inheritance
+Parent → Child → Grandchild
+class GrandFather:
+    def land(self):
+        print("GrandFather has land")
+
+class Father(GrandFather):
+    def house(self):
+        print("Father has house")
+
+class Son(Father):
+    def bike(self):
+        print("Son has bike")
+
+s = Son()
+s.land()
+s.house()
+s.bike()
+
+✅ (C) Multiple Inheritance
+One child → multiple parents
+class Father:
+    def skills(self):
+        print("Father: Driving")
+
+class Mother:
+    def skills(self):
+        print("Mother: Cooking")
+
+class Child(Father, Mother):
+    pass
+
+c = Child()
+c.skills()
+
+
+📌 Important:
+Python follows MRO (Method Resolution Order)
+So it will take method from Father first.
+
+✅ (D) Hierarchical Inheritance
+One parent → multiple children
+class Parent:
+    def property(self):
+        print("Parent property")
+
+class Son(Parent):
+    def son_method(self):
+        print("I am Son")
+
+class Daughter(Parent):
+    def daughter_method(self):
+        print("I am Daughter")
+
+s = Son()
+d = Daughter()
+
+s.property()
+s.son_method()
+
+d.property()
+d.daughter_method()
+
+✅ (E) Hybrid Inheritance
+Combination of 2 or more inheritance types
+
+(Example: Multiple + Multilevel)
+
+class A:
+    def showA(self):
+        print("Class A")
+
+class B(A):
+    def showB(self):
+        print("Class B")
+
+class C(A):
+    def showC(self):
+        print("Class C")
+
+class D(B, C):
+    def showD(self):
+        print("Class D")
+
+obj = D()
+obj.showA()
+obj.showB()
+obj.showC()
+obj.showD()
+
+✅ Summary Table
+Type	Meaning
+Single	1 Parent → 1 Child
+Multilevel	Grandparent → Parent → Child
+Multiple	2 Parents → 1 Child
+Hierarchical	1 Parent → Many Children
+Hybrid	Mix of multiple types
+✅ 3) Method Overriding (Very Important)
+Meaning:
+
+When child class redefines the same method of parent class.
+
+📌 Same method name
+📌 Same parameters
+📌 Child method runs instead of parent
+
+Example:
+class Animal:
+    def sound(self):
+        print("Animal makes sound")
+
+class Dog(Animal):
+    def sound(self):   # overriding
+        print("Dog barks")
+
+d = Dog()
+d.sound()
+
+
+✅ Output:
+Dog barks
+
+
+So child method replaced parent method.
+
+✅ Why Method Overriding is used?
+
+✅ To change behavior in child class
+Example:
+
+Parent: general sound
+
+Child: specific sound
+
+✅ 4) super() Function (Most important 🔥)
+Meaning:
+
+super() is used to call parent class method/constructor inside child class.
+
+✅ Example 1: Calling Parent method using super()
+class Parent:
+    def show(self):
+        print("Parent method")
+
+class Child(Parent):
+    def show(self):
+        super().show()   # calling parent method
+        print("Child method")
+
+c = Child()
+c.show()
+
+
+✅ Output:
+Parent method
+Child method
+
+✅ Example 2: super() with constructor (init)
+class Parent:
+    def __init__(self, name):
+        self.name = name
+
+class Child(Parent):
+    def __init__(self, name, age):
+        super().__init__(name)   # calling Parent constructor
+        self.age = age
+
+c = Child("Rajan", 19)
+print(c.name)
+print(c.age)
+
+
+✅ Output:
+Rajan
+19
+
+⭐ super() is mostly used when:
+
+✅ Parent has important initialization
+✅ Child wants to add extra things
+✅ Avoid code duplication
+
+🔥 Final Short Notes (Exam Ready)
+
+✅ Inheritance: child class gets features from parent class
+✅ Method overriding: child changes parent method behavior
+✅ super(): calls parent class method/constructor inside child class
