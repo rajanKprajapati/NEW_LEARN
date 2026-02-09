@@ -141,15 +141,15 @@ It will call A first because A is first in (A, B).
 ⭐ Intermediate
 Create class Camera with method take_photo()
 Create class Phone with method call()
-Create class SmartPhone(Camera, Phone) and call both.
+Create class SmartPhone(Camera, Phone) and call both.(pro_11.py)
 
 Create Teacher and Singer classes.
-Child class Person(Teacher, Singer) should use both methods.
+Child class Person(Teacher, Singer) should use both methods.(pro_12.py)
 
 🔥 Hard
 Create class A and B both have method display().
 Child class C(A, B) calls display() and print MRO.
-Then change order C(B, A) and check output difference.
+Then change order C(B, A) and check output difference.(pro_13.py)
 
 Create LoginSystem and PaymentSystem both have start() method.
 Create EcommerceApp(LoginSystem, PaymentSystem)
@@ -157,7 +157,7 @@ Solve method conflict using:
 
 super()
 
-Explicit class calling (LoginSystem.start(self))
+Explicit class calling (LoginSystem.start(self))(pro_14.py)
 
 4️⃣ Hierarchical Inheritance
 ✅ Meaning
