@@ -189,10 +189,10 @@ c.sound()
 🧠 Questions (Hierarchical Inheritance)
 ⭐ Intermediate
 Create Shape class with method area()
-Create Circle(Shape) and Rectangle(Shape) with their own area formulas.
+Create Circle(Shape) and Rectangle(Shape) with their own area formulas.(pro_16.py)
 
 Create BankAccount class
-Create SavingsAccount and CurrentAccount as child classes.
+Create SavingsAccount and CurrentAccount as child classes.(same as dont need to do)
 
 🔥 Hard
 Create parent class Notification with method send()
@@ -203,7 +203,7 @@ EmailNotification
 SMSNotification
 
 WhatsAppNotification
-Override send() in each.
+Override send() in each.(pro_17.py)
 
 Create parent Employee and child classes Developer, Designer, Tester
 Each should override method work().
@@ -211,7 +211,7 @@ Each should override method work().
 5️⃣ Hybrid Inheritance
 ✅ Meaning
 Hybrid inheritance = mix of two or more inheritance types
-Example: combination of multiple + multilevel etc.
+Example: combination of multiple + multilevel etc.(pro_18.py)
 
 ⚠️ Python supports hybrid inheritance.
 
@@ -242,17 +242,17 @@ obj.showD()
 Create Person class
 Create Student(Person) and Employee(Person)
 Create WorkingStudent(Student, Employee)
-Print all details.
+Print all details.(same as above)
 
 Create Machine → Vehicle(Machine)
-Create Car(Vehicle) and Electric(Car, Machine) hybrid.
+Create Car(Vehicle) and Electric(Car, Machine) hybrid.(same as above)
 
 🔥 Hard
 Create a hybrid system and print MRO.
 Example classes: A, B(A), C(A), D(B, C)
 Now add method with same name in B and C and observe output.
 
-Make constructors in all classes and ensure all constructors run properly using super().
+Make constructors in all classes and ensure all constructors run properly using super().(same like just above)
 
 6️⃣ Method Overriding
 ✅ Meaning
@@ -356,3 +356,5 @@ Hierarchical	1 parent → many children
 Hybrid	Combination of inheritance types
 Overriding	Child changes parent method
 super()	Calls parent methods/constructor
+
+NOTE:now last four-8 questios are still same as above(pro_8 to 14 ) but little change
