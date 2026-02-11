@@ -1,0 +1,285 @@
+6. Polymorphism (Core Concept)
+🔹 Meaning:
+
+One interface, many forms
+Same method name → different behavior depending on the object.
+
+🔹 Simple idea:
+area() → behaves differently for Circle, Rectangle, Triangle
+
+✅ Example:
+class Shape:
+    def area(self):
+        print("Area of shape")
+
+class Circle(Shape):
+    def __init__(self, r):
+        self.r = r
+
+    def area(self):
+        return 3.14 * self.r * self.r
+
+class Rectangle(Shape):
+    def __init__(self, l, b):
+        self.l = l
+        self.b = b
+
+    def area(self):
+        return self.l * self.b
+
+# Polymorphism in action
+shapes = [Circle(5), Rectangle(4, 6)]
+
+for s in shapes:
+    print(s.area())
+
+🎯 Real-world meaning:
+
+Same button “Pay”:
+
+UPI → UPI payment
+
+Card → Card payment
+
+Wallet → Wallet payment
+Same action name, different behavior.
+
+🧠 Questions:
+
+Intermediate:
+Create Animal class with sound() method.
+Create Dog, Cat, Cow classes and show polymorphism using a loop.(pro_1.py)
+
+Hard 1:
+Create Employee class with calculate_salary()
+Subclasses:
+
+FullTimeEmployee
+
+PartTimeEmployee
+
+Freelancer
+Each uses different logic.(pro_2.py)
+
+Hard 2:
+Create FileReader base class with read()
+Subclasses:
+
+PDFReader
+
+ExcelReader
+
+CSVReader
+Call all using one loop.
+
+1. Method Overloading (Python Way)
+🔹 Meaning:
+
+Same method name, different arguments
+
+⚠ Python does NOT support traditional overloading like Java
+✅ Python uses:
+
+default arguments
+
+*args
+
+**kwargs
+
+✅ Example using default args:
+class Calculator:
+    def add(self, a, b=0, c=0):
+        return a + b + c
+
+calc = Calculator()
+print(calc.add(5))
+print(calc.add(5, 3))
+print(calc.add(5, 3, 2))
+
+✅ Example using *args:
+class Calculator:
+    def add(self, *nums):
+        return sum(nums)
+
+calc = Calculator()
+print(calc.add(2, 3))
+print(calc.add(1, 2, 3, 4, 5))
+
+🎯 Real meaning:
+
+One function → multiple input styles
+
+🧠 Questions:
+
+Intermediate:
+Create multiply() method that can multiply 2 or more numbers.
+
+Hard 1:
+Create Student class with register() method:
+
+only name
+
+name + age
+
+name + age + course
+
+Hard 2:
+Create Payment class with pay() method:
+
+pay(amount)
+
+pay(amount, method)
+
+pay(amount, method, discount)
+
+2. Method Overriding
+🔹 Meaning:
+
+Child class redefines parent class method
+Same name + same parameters → new behavior
+
+✅ Example:
+class Notification:
+    def send(self):
+        print("Sending notification")
+
+class EmailNotification(Notification):
+    def send(self):
+        print("Sending Email")
+
+class SMSNotification(Notification):
+    def send(self):
+        print("Sending SMS")
+
+n = [EmailNotification(), SMSNotification()]
+
+for i in n:
+    i.send()
+
+🎯 Real meaning:
+
+Base system → custom behavior in subclasses
+
+🧠 Questions:
+
+Intermediate:
+Create Vehicle class with start()
+Override in Car, Bike, Truck
+
+Hard 1:
+Create User class with login()
+Override in:
+
+AdminUser
+
+NormalUser
+
+GuestUser
+
+Hard 2:
+Create Order class with process()
+Override in:
+
+OnlineOrder
+
+StoreOrder
+
+PhoneOrder
+
+3. Duck Typing 🦆
+🔹 Meaning:
+
+"If it behaves like a duck, it is a duck"
+👉 Python doesn’t care about class, only method presence
+
+✅ Example:
+class Dog:
+    def speak(self):
+        print("Bark")
+
+class Human:
+    def speak(self):
+        print("Hello")
+
+class Robot:
+    def speak(self):
+        print("Beep")
+
+def call_speak(obj):
+    obj.speak()   # no type checking
+
+call_speak(Dog())
+call_speak(Human())
+call_speak(Robot())
+
+🎯 Real meaning:
+
+Python focuses on behavior, not inheritance
+
+🧠 Questions:
+
+Intermediate:
+Create Bird, Plane, Drone classes all with fly() method and use one function to call them.
+
+Hard 1:
+Create File, Database, API classes with connect() method and use duck typing.
+
+Hard 2:
+Create Teacher, YouTuber, AIModel with teach() method and call via one function.
+
+4. Operator Overloading (add, str, etc.)
+🔹 Meaning:
+
+Redefine operators for objects
+Example:
++ , - , * , == , print()
+
+✅ Example: add
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+
+v1 = Vector(2, 3)
+v2 = Vector(4, 5)
+
+print(v1 + v2)   # (6, 8)
+
+Common magic methods:
+__add__  -> +
+__sub__  -> -
+__mul__  -> *
+__eq__   -> ==
+__lt__   -> <
+__str__  -> print()
+__len__  -> len()
+
+🧠 Questions:
+
+Intermediate:
+Create ComplexNumber class and overload +
+
+Hard 1:
+Create BankBalance class and overload + to combine balances
+
+Hard 2:
+Create Book class and overload:
+
+__str__
+
+__eq__
+
+__add__ (merge pages)
+
+🧠 Final Mental Model (Very Important for ML + Real Software)
+Polymorphism  → same method name, different behavior
+Overloading   → same method, different inputs
+Overriding    → child replaces parent method
+Duck Typing   → behavior matters, not class
+Operator OL   → operators work on objects
