@@ -70,7 +70,7 @@ PDFReader
 ExcelReader
 
 CSVReader
-Call all using one loop.
+Call all using one loop.(pro_3.py)
 
 1. Method Overloading (Python Way)
 🔹 Meaning:
@@ -112,7 +112,7 @@ One function → multiple input styles
 🧠 Questions:
 
 Intermediate:
-Create multiply() method that can multiply 2 or more numbers.
+Create multiply() method that can multiply 2 or more numbers.(pro_4.py)
 
 Hard 1:
 Create Student class with register() method:
@@ -121,7 +121,7 @@ only name
 
 name + age
 
-name + age + course
+name + age + course(pro_5.py)
 
 Hard 2:
 Create Payment class with pay() method:
@@ -130,7 +130,7 @@ pay(amount)
 
 pay(amount, method)
 
-pay(amount, method, discount)
+pay(amount, method, discount) (pro_6.py)
 
 2. Method Overriding
 🔹 Meaning:
@@ -164,7 +164,14 @@ Base system → custom behavior in subclasses
 
 Intermediate:
 Create Vehicle class with start()
-Override in Car, Bike, Truck
+Override in Car, Bike, Truck"""Create Payment class with pay() method:
+
+pay(amount)
+
+pay(amount, method)
+
+pay(amount, method, discount)(this is the same logic question)
+
 
 Hard 1:
 Create User class with login()
@@ -174,7 +181,7 @@ AdminUser
 
 NormalUser
 
-GuestUser
+GuestUser (this is the same logic question)
 
 Hard 2:
 Create Order class with process()
@@ -184,7 +191,7 @@ OnlineOrder
 
 StoreOrder
 
-PhoneOrder
+PhoneOrder(this is the same logic question)
 
 3. Duck Typing 🦆
 🔹 Meaning:
