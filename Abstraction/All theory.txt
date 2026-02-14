@@ -1,0 +1,102 @@
+🔹 7️⃣ Abstraction in Python (Simple Version)
+1️⃣ Meaning
+
+Abstraction = hiding unnecessary details and showing only important features.
+
+Focus on what an object does, not how it does it
+
+Makes code clean, safe, and reusable
+
+2️⃣ Abstract Classes
+
+A class that cannot be created directly
+
+Meant to be inherited by child classes
+
+Defines methods that child classes must implement
+
+Use abc module:
+
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+
+ABC → marks the class as abstract
+
+@abstractmethod → method must be implemented by child classes
+
+3️⃣ Abstract Methods
+
+Methods with no body in abstract class
+
+Child classes must override them
+
+class Dog(Animal):
+    def sound(self):
+        print("Woof Woof")
+
+d = Dog()
+d.sound()  # Woof Woof
+
+4️⃣ Why Use Abstraction?
+
+Hide complexity
+
+Force child classes to implement methods
+
+Clean and maintainable code
+
+Real-world modeling: e.g., Vehicle with start() and stop()
+
+5️⃣ Real-Life Analogy
+
+Abstract class = Blueprint
+
+Abstract method = Rooms you must build
+
+Concrete class = House built from blueprint
+
+6️⃣ Hard Questions (Same as Before)
+Q1: Shape Hierarchy
+
+Abstract class Shape → abstract methods area() and perimeter()
+
+Implement Circle, Rectangle, Triangle
+
+Function to calculate total area and perimeter of a list of shapes
+
+Q2: Employee Payroll System
+
+Abstract class Employee → abstract methods calculate_salary(), get_details()
+
+Implement FullTimeEmployee and PartTimeEmployee
+
+Print total payroll
+
+Q3: Bank Account System
+
+Abstract class BankAccount → abstract methods deposit(amount), withdraw(amount)
+
+Implement SavingsAccount (min balance) and CurrentAccount (overdraft)
+
+Function to transfer money
+
+Q4: Shape Drawer with Colors
+
+Abstract class ColoredShape → abstract methods draw() and fill_color(color)
+
+Implement Circle, Square, Triangle
+
+Track count of each shape drawn
+
+Q5: Data Exporter
+
+Abstract class DataExporter → abstract methods read_data(), export_data()
+
+Implement CSVExporter, JSONExporter, ExcelExporter
+
+Function export_all(data, exporters) calls export_data() for all

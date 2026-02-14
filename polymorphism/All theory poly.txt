@@ -226,13 +226,13 @@ Python focuses on behavior, not inheritance
 🧠 Questions:
 
 Intermediate:
-Create Bird, Plane, Drone classes all with fly() method and use one function to call them.
+Create Bird, Plane, Drone classes all with fly() method and use one function to call them.(pro_8.py)
 
 Hard 1:
-Create File, Database, API classes with connect() method and use duck typing.
+Create File, Database, API classes with connect() method and use duck typing.(same logic)
 
 Hard 2:
-Create Teacher, YouTuber, AIModel with teach() method and call via one function.
+Create Teacher, YouTuber, AIModel with teach() method and call via one function.(same logic)
 
 4. Operator Overloading (add, str, etc.)
 🔹 Meaning:
@@ -269,20 +269,28 @@ __len__  -> len()
 
 🧠 Questions:
 
-Intermediate:
-Create ComplexNumber class and overload +
+Hard Question: Library Book Count
 
-Hard 1:
-Create BankBalance class and overload + to combine balances
+Problem:
+Create a Student class with name and marks. Overload:
++ → add marks of two students → return a new student with combined marks.
+== → compare marks of two students.
+> → check if first student has more marks.
+print() → print in format: "Name: xxx, Marks: yyy"(pro_10.py)
 
-Hard 2:
-Create Book class and overload:
+Question:
+BankAccount class with account_number and balance. Overload:
++ → add balances of two accounts → return new account with combined balance.
+> → check which account has higher balance.
+str() → print "Account No: xxxx, Balance: ₹yyyy"(same logic question)(Same logic question)
 
-__str__
+Question:
+Create Vector3D class (x, y, z). Overload:
++ → add vectors component-wise
+* → dot product of two vectors
+== → compare if magnitudes are equal
+str() → print nicely(pro_11.py)(pro_12.py)
 
-__eq__
-
-__add__ (merge pages)
 
 🧠 Final Mental Model (Very Important for ML + Real Software)
 Polymorphism  → same method name, different behavior
