@@ -1,0 +1,236 @@
+8️⃣ Magic (Dunder) Methods in Python
+🔹 What are Magic (Dunder) Methods?
+
+Magic methods are special methods in Python that start and end with double underscores:
+
+__methodname__
+
+
+They are also called dunder methods (double underscore → dunder).
+
+👉 They allow your objects to behave like built-in types (int, list, string, etc.)
+
+Simple Meaning:
+
+They tell Python how your object should behave in special situations.
+
+Like:
+
+When printing → print(obj)
+
+When adding → obj1 + obj2
+
+When using len() → len(obj)
+
+Important Magic Methods (Very Simple)
+
+
+✅ What is __str__()?
+
+__str__() is a magic (dunder) method that tells Python:
+
+“When someone prints this object, what text should I show?”
+
+👉 What to show when you print an object
+
+class Student:
+    def __str__(self):
+        return "I am a student"
+
+s = Student()
+print(s)   # I am a student
+
+2️⃣ __repr__()
+
+👉 Technical / developer representation of object
+
+class Student:
+    def __repr__(self):
+        return "Student() object"
+
+s = Student()
+print(s)   # Student() object
+
+| `__str__()`    | `__repr__()`   |
+| -------------- | -------------- |
+| For users      | For developers |
+| Human-friendly | Debug-friendly |
+| print(obj)     | repr(obj)      |
+| Display        | Technical view |
+Important Rule:
+If __str__() is missing, Python uses __repr__() as fallback.
+
+
+
+3️⃣ __add__()
+
+👉 What happens when you use +
+
+class Number:
+    def __init__(self, x):
+        self.x = x
+
+    def __add__(self, other):
+        return self.x + other.x
+
+a = Number(10)
+b = Number(20)
+
+print(a + b)   # 30
+
+4️⃣ __len__()
+
+👉 What happens when you use len()
+
+class Bag:
+    def __init__(self, items):
+        self.items = items
+
+    def __len__(self):
+        return len(self.items)
+
+b = Bag([1, 2, 3, 4])
+print(len(b))   # 4
+
+🧠 Very Simple Line:
+
+Magic methods make your class objects act like normal Python objects.
+
+🔥 Hard Practice Questions (Magic Methods)
+
+Create a class Library that:
+
+Stores list of books
+
+len(library) → returns number of books
+
+print(library) → shows "Library with X books"
+
+Create a class Money:
+
+Has amount
+
+Using + should add two Money objects
+
+Using str() should show: "₹ <amount>"
+
+Create a class Vector:
+
+Has x and y
+
++ adds vectors
+
+len() returns magnitude (√(x² + y²))
+
+print() shows (x, y)
+
+9️⃣ Composition & Aggregation (Has-A Relationship)
+
+These are relationships between classes.
+
+👉 One class contains another class
+This is called Has-A relationship
+
+Example:
+
+Car has an Engine
+Student has a Laptop
+House has Rooms
+
+🔹 Composition (Strong Has-A)
+Meaning:
+
+Child object cannot exist without parent object.
+
+If parent is destroyed → child is destroyed ❌
+
+Example:
+class Engine:
+    def start(self):
+        print("Engine started")
+
+class Car:
+    def __init__(self):
+        self.engine = Engine()   # Engine created inside Car
+
+    def drive(self):
+        self.engine.start()
+        print("Car is moving")
+
+
+👉 If Car is deleted → Engine also gone
+✅ Strong dependency = Composition
+
+🔹 Aggregation (Weak Has-A)
+Meaning:
+
+Child object can exist independently of parent.
+
+If parent is destroyed → child still exists ✅
+
+Example:
+class Laptop:
+    def work(self):
+        print("Laptop working")
+
+class Student:
+    def __init__(self, laptop):
+        self.laptop = laptop   # external object
+
+    def study(self):
+        self.laptop.work()
+
+
+👉 Laptop exists even if Student is deleted
+✅ Weak dependency = Aggregation
+
+🧠 Easy Memory Trick:
+Type	Meaning	Dependency
+Composition	Strong Has-A	Cannot live alone ❌
+Aggregation	Weak Has-A	Can live alone ✅
+🔥 Hard Practice Questions (Composition & Aggregation)
+
+Design a system:
+
+Human and Heart
+
+Use composition
+
+Heart should not exist without Human
+Implement live() method.
+
+Design a system:
+
+Company and Employee
+
+Use aggregation
+
+Employee should exist even without Company
+Implement work() method.
+
+Build a mini project structure:
+
+School
+
+Teacher
+
+Student
+Rules:
+
+School has teachers (aggregation)
+
+Student has IDCard (composition)
+Implement relationships properly.
+
+🎯 One-Line Exam Definitions:
+Magic Methods:
+
+Special methods in Python with double underscores that define object behavior for built-in operations.
+
+Composition:
+
+Strong has-a relationship where child object depends on parent for existence.
+
+Aggregation:
+
+Weak has-a relationship where child object exists independently.
